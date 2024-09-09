@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Conversion</title>
+    <style>
+          header, footer {
+            padding: 1em;
+            background-color: blue;
+            width: 100%;
+        }
+        main {
+            padding: 1em;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 100%;
+        }
+       
+        input[type="text"] {
+            padding: 0.5em;
+            width: 150px;
+            margin-right: 1em;
+        }
+        input[type="button"] {
+            padding: 0.5em 1em;
+            margin-top: 1em;
+        }
+        .buttonFormat {
+            border-radius: 5px; /* Sets the border radius of the button */
+            background-color: lightblue; /* Background color of the button */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Speed Conversion</h1>
+    </header>
+    
+    <main>
+        <form>
+            <div class="form-group">
+                <label for="kph">Kilometers per Hour (Kph):</label> 
+                <!-- First textfield with specified properties -->
+                <input type="text" id="kph" name="kph" required placeholder="Enter Kph" minlength="1" maxlength="10" size="30"  oninput="validateInput(this)">
+            </div>
+
+            
+            <div class="form-group">
+                <label for="mph">Converted Mph:</label> 
+                <!-- Second textfield, disabled -->
+                <input type="text"  id="mph"  name="mph"  disabled size="30">
+            </div>
+
+
+            <button type="reset"> Clear</button>
+
+            <!-- Convert button with event listener -->
+            <input type="button"  value="Convert"  id="btnConvert"  class="buttonFormat">
+        </form>
+    </main>
+    
+    <br>
+    <br>
+     <br>
+      <br>   
+       <br>
+        <br>
+         <br>
+          <br>   
+           <br>
+            <br>
+              <br>
+               <br> 
+                <br>
+                <br>
+                 <br>
+                  <br>   
+                   <br>
+                    <br>  
+                 <footer>
+                    &copy; 2023
+                </footer>
+                    </br>
+                   </br>
+                   </br>
+                  </br>   
+                </br>
+               </br>
+              </br>
+             </br>
+            </br>
+           </br>   
+          </br>
+         </br>
+        </br>
+       </br>   
+      </br>
+     </br>
+    </br>
+  </br>  
+
+    <script>
+        // Function to convert Kph to Mph and display the result
+        function convertMe() {
+            // Get the value of the Kph input field
+            let kphValue = parseInt(document.querySelector("#kph").value);
+
+            // Check if the input value is a valid number
+            if (isNaN(kphValue)) {
+                return;
+            }
+
+            // Perform the conversion from Kph to Mph
+            let mphValue = kphValue * 0.621371;
+
+            // Display the converted value in the Mph output field
+            document.querySelector("#mph").value = mphValue.toFixed(2); // Round to 2 decimal places
+
+            // Display the converted value in the output text field
+            document.querySelector("#output").value = mphValue.toFixed(2);
+
+            // Display the converted value in an alert box
+            //alert("The converted speed is: " + mphValue.toFixed(2) + " Mph.");
+        }
+
+        // Function to restrict user input to numbers only
+        function validateInput(myElement) {
+            let myRegExpr = /[^0-9.]/g;  // Allow numbers and the decimal point
+            myElement.value = myElement.value.replace(myRegExpr, '');
+        }
+
+        // Add event listener to the Convert button
+        document.querySelector("#btnConvert").addEventListener("click", convertMe);
+    </script>
+</body>
+</html>
